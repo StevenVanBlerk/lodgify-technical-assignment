@@ -13,8 +13,13 @@
 .itemHeader {
   display: flex;
   gap: var(--spacing-small);
+  align-items: center;
 }
 
+.icon {
+  height: 16px;
+  width: 16px;
+}
 .checkboxGroup {
   display: grid;
   gap: var(--spacing-small);

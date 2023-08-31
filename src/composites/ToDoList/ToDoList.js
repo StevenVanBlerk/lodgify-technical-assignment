@@ -7,6 +7,14 @@ import {
 } from '@/components/index';
 import styles from './styles.module.css';
 import { calculateCompletionPercentage, formatGroups } from './helpers';
+import styled from 'styled-components';
+
+const GroupHeader = styled.span`
+  color: ${({ isGroupComplete }) =>
+    isGroupComplete
+      ? 'var(--color-success-green)'
+      : 'var(--color-greyscale-900)'};
+`;
 
 const ToDoList = () => {
   const [rawGroupsData, setRawGroupsData] = useState([]);
@@ -63,12 +71,21 @@ const ToDoList = () => {
           return (
             <AccordionItem
               header={
-                <span className={styles.itemHeader}>
-                  <span aria-hidden='true'>
-                    <img src='/icons/booking-features.svg'></img>
+                <GroupHeader
+                  className={styles.itemHeader}
+                  isGroupComplete={isGroupComplete}
+                >
+                  <span className={styles.icon} aria-hidden='true'>
+                    <img
+                      src={
+                        isGroupComplete
+                          ? '/icons/booking-ok.svg'
+                          : '/icons/booking-features.svg'
+                      }
+                    ></img>
                   </span>
                   {group.name}
-                </span>
+                </GroupHeader>
               }
               key={group.name}
             >
