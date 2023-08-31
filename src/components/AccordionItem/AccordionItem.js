@@ -25,7 +25,7 @@ const Panel = styled.div`
   display: ${({ $isExpanded }) => ($isExpanded ? 'block' : 'none')};
   overflow: ${({ $isExpanded }) => ($isExpanded ? 'initial' : 'hidden')};
 `;
-const AccordionItem = ({ headerText, isFirstItem, isLastItem, children }) => {
+const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -42,10 +42,7 @@ const AccordionItem = ({ headerText, isFirstItem, isLastItem, children }) => {
           setIsExpanded((prevState) => !prevState);
         }}
       >
-        <span aria-hidden='true'>
-          <img src='/icons/booking-features.svg'></img>
-        </span>
-        {headerText}
+        {header}
       </button>
       <Panel className={styles.panel} $isExpanded={isExpanded}>
         hello
