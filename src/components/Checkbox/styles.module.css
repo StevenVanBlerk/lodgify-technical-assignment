@@ -4,7 +4,6 @@
   align-items: center;
   width: fit-content;
   cursor: pointer;
-  font-size: var(--font-size-small);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

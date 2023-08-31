@@ -15,9 +15,7 @@
   justify-content: space-between;
 
   text-align: left;
-  font-size: var(--font-size-medium);
   color: var(--color-greyscale-900);
-  /* confirm font family is correct */
 }
 
 .panel {

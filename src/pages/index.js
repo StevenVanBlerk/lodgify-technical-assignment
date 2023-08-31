@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Assignment - Steven van Blerk</title>
+        <title>Grouped tasks assignment - Steven</title>
       </Head>
       <main>
         <Card>
@@ -20,3 +20,4 @@ export default function Home() {
 
 // consider jest
 // consider storybook
+// QA spacings

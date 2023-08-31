@@ -40,14 +40,18 @@ const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
       $isLastItem={isLastItem}
     >
       <button
-        type='button'
         className={styles.header}
+        type='button'
+        role='heading'
+        aria-controls={header}
+        aria-expanded={isExpanded}
+        aria-level={3}
         onClick={() => {
           console.log('clicked', { isExpanded });
           setIsExpanded((prevState) => !prevState);
         }}
       >
-        <span>{header}</span>
+        <h3>{header}</h3>
         <span className={styles.chevronWrapper}>
           {isExpanded ? 'Hide' : 'Show'}
           <Chevron src='/icons/chevron-down.svg' $isExpanded={isExpanded} />

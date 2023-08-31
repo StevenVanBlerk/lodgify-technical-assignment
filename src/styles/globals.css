@@ -54,9 +54,9 @@
   --border-radius-medium: 16px;
   --border-radius-small: 8px;
 
-  -font-size-large: 22px;
-  -font-size-medium: 18px;
-  -font-size-small: 16px;
+  --font-size-large: 22px;
+  --font-size-medium: 18px;
+  --font-size-small: 16px;
 }
 
 * {
@@ -64,6 +64,15 @@
   padding: 0;
   margin: 0;
   font-family: SSP Regular;
+  font-weight: 100;
+  font-size: var(--font-size-small);
+  color: var(--color-black);
+}
+span,
+div {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
 }
 
 html,
@@ -82,4 +91,12 @@ main {
 
 h2 {
   font-family: 'SSP Bold';
+  font-size: var(--font-size-large);
+  color: var(--color-greyscale-900);
+}
+
+h3 {
+  font-family: 'SSP Regular';
+  font-size: var(--font-size-medium);
+  color: var(--color-greyscale-900);
 }
