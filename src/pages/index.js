@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import styles from '@/styles/Home.module.css';
 
 import { Card } from '@/components';
 import { ToDoList } from '@/composites';
@@ -19,9 +18,5 @@ export default function Home() {
   );
 }
 
-// test mobile
 // consider jest
-// consider prop types
 // consider storybook
-// consider animations
-// consider changing how styled components are implemented (see ProgressBar console warnings)

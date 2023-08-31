@@ -10,8 +10,8 @@ import { calculateCompletionPercentage, formatGroups } from './helpers';
 import styled from 'styled-components';
 
 const GroupHeader = styled.span`
-  color: ${({ isGroupComplete }) =>
-    isGroupComplete
+  color: ${({ $isGroupComplete }) =>
+    $isGroupComplete
       ? 'var(--color-success-green)'
       : 'var(--color-greyscale-900)'};
 `;
@@ -73,7 +73,7 @@ const ToDoList = () => {
               header={
                 <GroupHeader
                   className={styles.itemHeader}
-                  isGroupComplete={isGroupComplete}
+                  $isGroupComplete={isGroupComplete}
                 >
                   <span className={styles.icon} aria-hidden='true'>
                     <img

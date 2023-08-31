@@ -25,5 +25,5 @@ export const calculateCompletionPercentage = ({ formattedGroups, groups }) => {
   });
 
   const completionPercentage = (completedWeight * 100) / totalWeight;
-  return Math.round(completionPercentage);
+  return Math.round(completionPercentage) || 0;
 };
