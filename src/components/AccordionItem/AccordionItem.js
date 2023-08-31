@@ -43,11 +43,10 @@ const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
         className={styles.header}
         type='button'
         role='heading'
-        aria-controls={header}
+        aria-controls={`${header}-panel`}
         aria-expanded={isExpanded}
         aria-level={3}
         onClick={() => {
-          console.log('clicked', { isExpanded });
           setIsExpanded((prevState) => !prevState);
         }}
       >
@@ -57,7 +56,11 @@ const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
           <Chevron src='/icons/chevron-down.svg' $isExpanded={isExpanded} />
         </span>
       </button>
-      <Panel className={styles.panel} $isExpanded={isExpanded}>
+      <Panel
+        id={`${header}-panel`}
+        className={styles.panel}
+        $isExpanded={isExpanded}
+      >
         {children}
       </Panel>
     </Wrapper>

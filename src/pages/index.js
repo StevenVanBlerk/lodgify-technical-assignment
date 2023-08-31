@@ -18,6 +18,10 @@ export default function Home() {
   );
 }
 
+// QA spacings
+// .readme file
+// host site
+// checkbox accessibility
+// meter accessibility
 // consider jest
 // consider storybook
-// QA spacings
