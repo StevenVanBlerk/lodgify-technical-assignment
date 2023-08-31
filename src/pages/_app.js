@@ -1,5 +1,10 @@
-import '@/styles/globals.css'
+import StyledComponentsRegistry from '@/lib/registry';
+import '@/styles/globals.css';
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <StyledComponentsRegistry>
+      {<Component {...pageProps} />}
+    </StyledComponentsRegistry>
+  );
 }
