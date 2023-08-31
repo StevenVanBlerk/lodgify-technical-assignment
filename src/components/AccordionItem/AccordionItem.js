@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
 const Chevron = styled.img`
   transform: ${({ $isExpanded }) =>
-    $isExpanded ? 'rotate(0deg)' : 'rotate(180deg)'};
+    $isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'};
   transition: transform 0.2s ease;
 `;
 
@@ -50,9 +50,7 @@ const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
         <span>{header}</span>
         <span className={styles.chevronWrapper}>
           {isExpanded ? 'Hide' : 'Show'}
-          <span aria-hidden='true'>
-            <Chevron src='/icons/chevron-up.svg' $isExpanded={isExpanded} />
-          </span>
+          <Chevron src='/icons/chevron-down.svg' $isExpanded={isExpanded} />
         </span>
       </button>
       <Panel className={styles.panel} $isExpanded={isExpanded}>

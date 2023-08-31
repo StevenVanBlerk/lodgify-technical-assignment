@@ -3,4 +3,6 @@
   padding: var(--spacing-small);
   border-radius: var(--border-radius-small);
   border: 1px solid var(--color-dark-grey);
+  max-width: 820px;
+  width: 100%;
 }

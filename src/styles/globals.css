@@ -76,6 +76,8 @@ body {
 main {
   min-height: 100vh;
   padding: var(--spacing-extra-large);
+  display: grid;
+  place-items: center;
 }
 
 h2 {

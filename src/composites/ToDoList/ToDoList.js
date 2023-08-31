@@ -160,7 +160,7 @@ const ToDoList = () => {
                   return (
                     <Checkbox
                       key={`${group.name}-${task.description}`}
-                      label={task.description + ' - ' + task.value}
+                      label={task.description}
                       isChecked={groupsState[group.name][task.description]}
                       onChange={() => {
                         handleCheck(group.name, task.description);
