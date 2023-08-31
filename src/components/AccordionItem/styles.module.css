@@ -1,0 +1,21 @@
+.header {
+  border-radius: var(--border-radius-small);
+  outline: none;
+  border: none; /* anything else? */
+  cursor: pointer;
+  background-color: var(--color-white);
+  padding: var(--spacing-medium);
+  width: 100%;
+
+  display: flex;
+  gap: var(--spacing-small);
+
+  text-align: left;
+  font-size: var(--font-size-medium);
+  /* confirm font family is correct */
+}
+
+.panel {
+  padding: var(--spacing-small);
+  border: 1px dotted red;
+}
