@@ -6,4 +6,16 @@
 .heading {
   display: grid;
   gap: var(--spacing-small);
+  color: var(--color-greyscale-900);
+}
+
+.itemHeader {
+  display: flex;
+  gap: var(--spacing-small);
+}
+
+.checkboxGroup {
+  display: grid;
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
 }

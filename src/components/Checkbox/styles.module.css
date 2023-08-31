@@ -1,19 +1,27 @@
 /* Customize the label (the container) */
 .container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
   cursor: pointer;
-  font-size: 22px;
+  font-size: var(--font-size-small);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
+.checkmarkWrapper {
+  --checkbox-size: 16px;
+  position: relative;
+  display: inline-block;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  margin-right: var(--spacing-small);
+}
+
 /* Hide the browser's default checkbox */
-.container input {
+.input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -26,19 +34,22 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
+  height: var(--checkbox-size);
+  width: var(--checkbox-size);
+  border-radius: 4px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-greyscale-500);
 }
 
-/* On mouse-over, add a grey background color */
+/* On mouse-over, add a custom background color */
 .container:hover input ~ .checkmark {
-  background-color: #ccc;
+  border: 1px solid var(--color-success-green);
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, change background */
 .container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: var(--color-success-green);
+  border: none;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -54,14 +65,15 @@
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+.checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--color-white);
+  border-width: 0 1.5px 1.5px 0;
+  --rotation-angle: 45deg;
+  -webkit-transform: rotate(var(--rotation-angle));
+  -ms-transform: rotate(var(--rotation-angle));
+  transform: rotate(var(--rotation-angle));
 }

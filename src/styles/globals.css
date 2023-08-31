@@ -46,8 +46,10 @@
   --spacing-large: 32px;
   --spacing-medium: 24px;
   --spacing-small: 16px;
+  --spacing-extra-small: 8px;
   --spacing-mini: 2px;
 
+  /* delete these */
   --border-radius-large: 24px;
   --border-radius-medium: 16px;
   --border-radius-small: 8px;

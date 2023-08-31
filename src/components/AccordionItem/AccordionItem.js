@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import styles from './styles.module.css';
 
 const Wrapper = styled.div`
-  border: 1px solid var(--color-greyscale-300);
-
   border-top: ${({ $isFirstItem }) =>
     $isFirstItem ? '1px solid var(--color-greyscale-300)' : 'none'};
 
@@ -21,6 +19,12 @@ const Wrapper = styled.div`
   }};
 `;
 
+const Chevron = styled.img`
+  transform: ${({ $isExpanded }) =>
+    $isExpanded ? 'rotate(0deg)' : 'rotate(180deg)'};
+  transition: transform 0.2s ease;
+`;
+
 const Panel = styled.div`
   display: ${({ $isExpanded }) => ($isExpanded ? 'block' : 'none')};
   overflow: ${({ $isExpanded }) => ($isExpanded ? 'initial' : 'hidden')};
@@ -30,6 +34,7 @@ const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
 
   return (
     <Wrapper
+      className={styles.wrapper}
       $isExpanded={isExpanded}
       $isFirstItem={isFirstItem}
       $isLastItem={isLastItem}
@@ -42,10 +47,15 @@ const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
           setIsExpanded((prevState) => !prevState);
         }}
       >
-        {header}
+        <span>{header}</span>
+        <span className={styles.chevronWrapper}>
+          {isExpanded ? 'Hide' : 'Show'}
+          <span aria-hidden='true'>
+            <Chevron src='/icons/chevron-up.svg' $isExpanded={isExpanded} />
+          </span>
+        </span>
       </button>
       <Panel className={styles.panel} $isExpanded={isExpanded}>
-        hello
         {children}
       </Panel>
     </Wrapper>

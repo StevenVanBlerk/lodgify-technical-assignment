@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <main>
         <Card>
-          <ToDoList heading='Lodgify Grouped Tasks' />
+          <ToDoList />
         </Card>
       </main>
     </>

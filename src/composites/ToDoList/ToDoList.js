@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ProgressBar,
   Accordion,
@@ -6,6 +6,7 @@ import {
   AccordionItem,
 } from '@/components/index';
 import styles from './styles.module.css';
+import { calculateCompletionPercentage, formatGroups } from './helpers';
 
 const groups = [
   {
@@ -100,50 +101,82 @@ const groups = [
   },
 ];
 
-const ToDoList = ({ heading }) => {
+const ToDoList = () => {
   //fetch tasks here
 
-  // calculate percentageValue here
-  const [isChecked, setIsChecked] = useState(false);
+  const groupsInitialState = formatGroups(groups);
+
+  const [groupsState, setGroupsState] = useState(groupsInitialState);
+  const [completionPercentage, setCompletionPercentage] = useState(
+    calculateCompletionPercentage({ formattedGroups: groupsState, groups })
+  );
+
+  //add comment here
+  useEffect(() => {
+    setCompletionPercentage(
+      calculateCompletionPercentage({
+        formattedGroups: groupsState,
+        groups,
+      })
+    );
+  }, [groupsState]);
+
+  const handleCheck = (groupName, taskDescription) => {
+    const isChecked = groupsState[groupName][taskDescription];
+    setGroupsState((prevState) => {
+      const prevStateCopy = JSON.parse(JSON.stringify(prevState));
+      prevStateCopy[groupName][taskDescription] = !isChecked;
+      return prevStateCopy;
+    });
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
-        <h2>{heading}</h2>
-        <ProgressBar percentageValue={75} />
+        <h2>Lodgify Grouped Tasks</h2>
+        <ProgressBar percentageValue={completionPercentage} />
       </div>
       <Accordion>
-        {groups.map((group) => (
-          <AccordionItem
-            header={
-              <>
-                <span aria-hidden='true'>
-                  <img src='/icons/booking-features.svg'></img>
+        {groups.map((group) => {
+          const isGroupComplete =
+            Object.values(groupsState[group.name]).filter(
+              (isTaskComplete) => !isTaskComplete
+            ).length === 0;
+
+          return (
+            <AccordionItem
+              header={
+                <span className={styles.itemHeader}>
+                  <span aria-hidden='true'>
+                    <img src='/icons/booking-features.svg'></img>
+                  </span>
+                  {group.name}
                 </span>
-                {group.name}
-              </>
-            }
-            key={group.name}
-          >
-            {group.tasks.map((task) => {
-              console.log('key', `${group.name}-${task.description}`);
-              return (
-                <Checkbox
-                  key={`${group.name}-${task.description}`}
-                  label={task.description}
-                  checked={isChecked}
-                  onChange={(value) => {
-                    console.log('value', value);
-                    setIsChecked(value);
-                  }}
-                />
-              );
-            })}
-          </AccordionItem>
-        ))}
+              }
+              key={group.name}
+            >
+              <div className={styles.checkboxGroup}>
+                {group.tasks.map((task) => {
+                  return (
+                    <Checkbox
+                      key={`${group.name}-${task.description}`}
+                      label={task.description + ' - ' + task.value}
+                      isChecked={groupsState[group.name][task.description]}
+                      onChange={() => {
+                        handleCheck(group.name, task.description);
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </AccordionItem>
+          );
+        })}
       </Accordion>
     </div>
   );
 };
 
 export default ToDoList;
+
+// TO-DO: extract parts of this into child components
