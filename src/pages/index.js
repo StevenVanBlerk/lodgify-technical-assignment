@@ -17,6 +17,3 @@ export default function Home() {
     </>
   );
 }
-// consider jest
-// accordion animation
-// consider storybook

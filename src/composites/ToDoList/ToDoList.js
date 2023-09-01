@@ -74,6 +74,7 @@ const ToDoList = () => {
           return (
             <AccordionItem
               key={group.name}
+              id={group.name}
               header={
                 <GroupHeader
                   id={`group ${group.name}`}

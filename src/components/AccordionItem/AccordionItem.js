@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import styles from './styles.module.css';
 
@@ -19,10 +19,19 @@ const Chevron = styled.img`
 
 const Panel = styled.div`
   display: ${({ $isExpanded }) => ($isExpanded ? 'block' : 'none')};
-  overflow: ${({ $isExpanded }) => ($isExpanded ? 'initial' : 'hidden')};
+  max-height: ${({ $maxHeight }) => $maxHeight}px;
 `;
-const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
+
+const AccordionItem = ({ id, header, isFirstItem, isLastItem, children }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [panelHeight, setPanelHeight] = useState(0);
+  const panelRef = useRef(null);
+
+  // fetching panel height to allow for height transition over time
+  useEffect(() => {
+    if (!isExpanded) setPanelHeight(0);
+    else setPanelHeight(panelRef.current.scrollHeight);
+  }, [isExpanded]);
 
   return (
     <Wrapper
@@ -53,8 +62,10 @@ const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
         </span>
       </button>
       <Panel
-        id={`${header}-panel`}
+        id={`${id} panel`}
+        ref={panelRef}
         className={styles.panel}
+        $maxHeight={panelHeight}
         $isExpanded={isExpanded}
       >
         {children}
