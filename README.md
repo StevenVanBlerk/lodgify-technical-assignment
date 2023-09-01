@@ -23,15 +23,6 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) within your browser to see the page.
 
-## How to run tests (from root directory)
-
-This will run all test files within the project and output results to the console
-```bash
-npm run test .
-```
-
-## How to run storybook component documentation
-
 ## Some extra details
 All generic components can be found within
 `src/components/`
