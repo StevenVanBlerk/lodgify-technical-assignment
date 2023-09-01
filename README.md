@@ -40,7 +40,7 @@ Not so generic components, built out of generic components, can be found within
 `src/composites/`
 
 For the sake of simplicity, I've kept the project to a single page. This page can be seen at
-`src/pages/index.js
+`src/pages/index.js`
 
 All global styling can be found within
 `src/styles/globals.css`
