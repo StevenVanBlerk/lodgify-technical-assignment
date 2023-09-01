@@ -23,5 +23,6 @@ export default function Home() {
 // host site
 // checkbox accessibility
 // meter accessibility
+// refactor large files into smaller components
 // consider jest
 // consider storybook

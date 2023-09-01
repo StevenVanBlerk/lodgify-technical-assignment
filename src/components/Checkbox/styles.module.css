@@ -63,6 +63,10 @@
   display: block;
 }
 
+.container:focus-within {
+  outline: 1px solid var(--color-greyscale-900);
+}
+
 /* Style the checkmark/indicator */
 .checkmark:after {
   left: 5px;

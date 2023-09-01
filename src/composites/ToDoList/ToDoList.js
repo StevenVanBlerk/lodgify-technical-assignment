@@ -59,7 +59,10 @@ const ToDoList = () => {
     <div className={styles.container}>
       <div className={styles.heading}>
         <h2>Lodgify Grouped Tasks</h2>
-        <ProgressBar percentageValue={completionPercentage} />
+        <ProgressBar
+          id='task progress bar'
+          percentageValue={completionPercentage}
+        />
       </div>
       <Accordion>
         {rawGroupsData.map((group) => {
@@ -70,8 +73,10 @@ const ToDoList = () => {
 
           return (
             <AccordionItem
+              key={group.name}
               header={
                 <GroupHeader
+                  id={`group ${group.name}`}
                   className={styles.itemHeader}
                   $isGroupComplete={isGroupComplete}
                 >
@@ -87,9 +92,13 @@ const ToDoList = () => {
                   {group.name}
                 </GroupHeader>
               }
-              key={group.name}
             >
-              <div className={styles.checkboxGroup}>
+              <div
+                className={styles.checkboxGroup}
+                role='group'
+                aria-labelledby={`group ${group.name}`}
+                aria-describedby='task progress bar'
+              >
                 {group.tasks.map((task) => {
                   return (
                     <Checkbox

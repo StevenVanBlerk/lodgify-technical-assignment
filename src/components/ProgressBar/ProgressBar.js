@@ -6,10 +6,11 @@ const PercentageBar = styled.div`
   width: ${({ width }) => width};
 `;
 
-const ProgressBar = ({ percentageValue }) => {
+const ProgressBar = ({ id, percentageValue }) => {
   return (
     <div className={styles.outerBar}>
       <PercentageBar
+        id={id}
         className={styles.innerBar}
         width={`${percentageValue}%`}
         role='meter'
