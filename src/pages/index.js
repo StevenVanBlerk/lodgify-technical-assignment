@@ -21,8 +21,6 @@ export default function Home() {
 // QA spacings
 // .readme file
 // host site
-// checkbox accessibility
-// meter accessibility
 // refactor large files into smaller components
 // consider jest
 // consider storybook
