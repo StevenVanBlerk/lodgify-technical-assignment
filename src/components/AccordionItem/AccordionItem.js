@@ -5,16 +5,9 @@ import styles from './styles.module.css';
 const Wrapper = styled.div`
   border-top: ${({ $isFirstItem }) =>
     $isFirstItem ? '1px solid var(--color-greyscale-300)' : 'none'};
-
   border-radius: ${({ $isFirstItem, $isLastItem }) => {
-    const topRadius = $isFirstItem
-      ? 'var(--border-radius-small) var(--border-radius-small)'
-      : '0px 0px';
-
-    const bottomRadius = $isLastItem
-      ? 'var(--border-radius-small) var(--border-radius-small)'
-      : '0px 0px';
-
+    const topRadius = $isFirstItem ? '8px 8px' : '0px 0px';
+    const bottomRadius = $isLastItem ? '8px 8px' : '0px 0px';
     return `${topRadius} ${bottomRadius}`;
   }};
 `;
@@ -22,7 +15,6 @@ const Wrapper = styled.div`
 const Chevron = styled.img`
   transform: ${({ $isExpanded }) =>
     $isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'};
-  transition: transform 0.2s ease;
 `;
 
 const Panel = styled.div`
@@ -53,7 +45,11 @@ const AccordionItem = ({ header, isFirstItem, isLastItem, children }) => {
         <h3>{header}</h3>
         <span className={styles.chevronWrapper}>
           {isExpanded ? 'Hide' : 'Show'}
-          <Chevron src='/icons/chevron-down.svg' $isExpanded={isExpanded} />
+          <Chevron
+            className={styles.icon}
+            src='/icons/chevron-down.svg'
+            $isExpanded={isExpanded}
+          />
         </span>
       </button>
       <Panel

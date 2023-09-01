@@ -1,11 +1,11 @@
 .outerBar {
   background-color: var(--color-success-light);
-  border-radius: var(--border-radius-large);
+  border-radius: 24px;
 }
 
 .innerBar {
   background-color: var(--color-success-green);
-  border-radius: var(--border-radius-medium);
+  border-radius: 16px;
   padding: var(--spacing-mini) var(--spacing-small);
   text-align: end;
   color: var(--color-white);

@@ -3,7 +3,7 @@
 }
 
 .header {
-  border-radius: var(--border-radius-small);
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   background-color: var(--color-white);
@@ -25,4 +25,8 @@
   display: flex;
   gap: var(--spacing-extra-small);
   color: var(--color-greyscale-500);
+}
+
+.icon {
+  transition: transform 0.2s ease;
 }
