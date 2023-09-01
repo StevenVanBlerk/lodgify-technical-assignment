@@ -22,7 +22,7 @@ const ToDoList = () => {
   const [groupsState, setGroupsState] = useState([]);
   const [completionPercentage, setCompletionPercentage] = useState(0);
 
-  // add comment here
+  // fetching data
   useEffect(() => {
     fetch(
       'https://gist.githubusercontent.com/huvber/ba0d534f68e34f1be86d7fe7eff92c96/raw/98a91477905ea518222a6d88dd8b475328a632d3/mock-progress'
@@ -36,7 +36,7 @@ const ToDoList = () => {
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
-  //add comment here
+  // ensuring state has updated before updating percentage value
   useEffect(() => {
     setCompletionPercentage(
       calculateCompletionPercentage({
@@ -121,5 +121,3 @@ const ToDoList = () => {
 };
 
 export default ToDoList;
-
-// TO-DO: extract parts of this into child components

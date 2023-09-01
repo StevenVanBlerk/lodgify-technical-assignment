@@ -2,7 +2,6 @@
   font-family: 'SSP ExtraLight';
   src: url('/fonts/SourceSansPro/SourceSansPro-ExtraLight.ttf')
     format('truetype');
-  /* TO-DO: test if this is truly needed on Safari https://www.smashingmagazine.com/2013/02/setting-weights-and-styles-at-font-face-declaration/ */
   font-weight: normal;
   font-style: normal;
 }

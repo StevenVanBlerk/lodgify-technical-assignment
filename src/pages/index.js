@@ -17,7 +17,6 @@ export default function Home() {
     </>
   );
 }
-
-// refactor large files into smaller components
 // consider jest
+// accordion animation
 // consider storybook
