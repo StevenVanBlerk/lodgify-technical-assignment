@@ -6,6 +6,7 @@
 
 .heading {
   display: grid;
+  padding: var(--spacing-large) var(--spacing-medium);
   gap: var(--spacing-small);
   color: var(--color-greyscale-900);
 }

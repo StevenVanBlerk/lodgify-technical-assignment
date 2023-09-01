@@ -18,9 +18,6 @@ export default function Home() {
   );
 }
 
-// QA spacings
-// .readme file
-// host site
 // refactor large files into smaller components
 // consider jest
 // consider storybook
