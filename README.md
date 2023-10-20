@@ -34,7 +34,7 @@ For the sake of simplicity, I've kept the project to a single page. This page ca
 `src/pages/index.js`
 
 All global styling can be found within
-`src/styles/globals.css`
+`src/styles/globals.css` 
 
 All styling in this project has been done within `styles.module.css` files located directly alongside their relevant component. 
 The only styling not done this way is any styling that is dependant on JavaScript variables, e.g. `src/components/ProgressBar/`. These are using `styled-components` to handle these variables.
